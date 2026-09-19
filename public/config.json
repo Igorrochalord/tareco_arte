@@ -1,0 +1,224 @@
+{
+  "artist": "Tareco Mariola",
+  "telegram": "LotusVelvett",
+  "twitter": "TarecodaMarola",
+  "status": "open",
+  "gallery": [
+    {
+      "id": "hellith",
+      "src": "assets/art/hellith-twisk.jpg",
+      "title": "Hellith Twisk"
+    },
+    {
+      "id": "apogeu",
+      "src": "assets/art/apogeu-ardente.jpg",
+      "title": "Apogeu Ardente"
+    },
+    {
+      "id": "sauron",
+      "src": "assets/art/sauron.jpg",
+      "title": "Sauron!!!"
+    },
+    {
+      "id": "lion",
+      "src": "assets/art/lion-gun.jpg",
+      "title": ""
+    },
+    {
+      "id": "road",
+      "src": "assets/art/road-creature.jpg",
+      "title": ""
+    },
+    {
+      "id": "sticker",
+      "src": "assets/art/pricing-card.jpg",
+      "title": "Stickers",
+      "crop": [
+        1728,
+        198,
+        742,
+        416
+      ]
+    }
+  ],
+  "hero": [
+    "hellith",
+    "apogeu",
+    "road"
+  ],
+  "about": {
+    "pt": [
+      "Tareco Mariola é artista digital e desenha furry com o coração no terror: monstros, criaturas e atmosferas sombrias, sempre mergulhadas em preto, roxo e vermelho.",
+      "Terror é o tema onde ela mais se diverte e o foco do portfólio. Nas comissões ela também aceita estilos fora da zona de conforto — icons, stickers, personagens mais leves — mas o convite é claro: traga seu personagem para o lado sombrio."
+    ],
+    "en": [
+      "Tareco Mariola is a digital artist who draws furry with her heart in horror: monsters, creatures and dark atmospheres, always drenched in black, purple and red.",
+      "Horror is the theme she enjoys most and the focus of the portfolio. Commissions also cover styles outside her comfort zone — icons, stickers, lighter characters — but the invitation is clear: bring your character to the dark side."
+    ],
+    "tags": {
+      "pt": [
+        "Terror",
+        "Furry",
+        "Arte digital",
+        "Preto · Roxo · Vermelho"
+      ],
+      "en": [
+        "Horror",
+        "Furry",
+        "Digital art",
+        "Black · Purple · Red"
+      ]
+    }
+  },
+  "types": [
+    {
+      "id": "horror",
+      "art": "hellith",
+      "min": null,
+      "max": null,
+      "name": {
+        "pt": "Estilo Horror",
+        "en": "Horror Style"
+      },
+      "options": [
+        {
+          "id": "icon",
+          "price": 30,
+          "label": {
+            "pt": "Icon",
+            "en": "Icon"
+          }
+        },
+        {
+          "id": "halfbody",
+          "price": 60,
+          "label": {
+            "pt": "Halfbody",
+            "en": "Halfbody"
+          }
+        },
+        {
+          "id": "fullbody",
+          "price": 80,
+          "label": {
+            "pt": "Fullbody",
+            "en": "Fullbody"
+          }
+        }
+      ],
+      "featured": true
+    },
+    {
+      "id": "icon",
+      "art": "lion",
+      "min": null,
+      "max": null,
+      "name": {
+        "pt": "Icon",
+        "en": "Icon"
+      },
+      "options": [
+        {
+          "id": "color",
+          "price": 15,
+          "label": {
+            "pt": "Colorido",
+            "en": "Flat color"
+          }
+        },
+        {
+          "id": "shaded",
+          "price": 25,
+          "label": {
+            "pt": "Sombreado",
+            "en": "Shaded"
+          }
+        }
+      ]
+    },
+    {
+      "id": "halfbody",
+      "art": "sauron",
+      "min": null,
+      "max": null,
+      "name": {
+        "pt": "Halfbody",
+        "en": "Halfbody"
+      },
+      "options": [
+        {
+          "id": "color",
+          "price": 30,
+          "label": {
+            "pt": "Colorido",
+            "en": "Flat color"
+          }
+        },
+        {
+          "id": "shaded",
+          "price": 40,
+          "label": {
+            "pt": "Sombreado",
+            "en": "Shaded"
+          }
+        }
+      ]
+    },
+    {
+      "id": "fullbody",
+      "art": "apogeu",
+      "min": null,
+      "max": null,
+      "name": {
+        "pt": "Fullbody",
+        "en": "Fullbody"
+      },
+      "options": [
+        {
+          "id": "color",
+          "price": 50,
+          "label": {
+            "pt": "Colorido",
+            "en": "Flat color"
+          }
+        },
+        {
+          "id": "shaded",
+          "price": 60,
+          "label": {
+            "pt": "Sombreado",
+            "en": "Shaded"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stickers",
+      "art": "sticker",
+      "min": null,
+      "max": null,
+      "name": {
+        "pt": "Pack de 5 Stickers",
+        "en": "5-Sticker Pack"
+      },
+      "options": [
+        {
+          "id": "solo",
+          "price": 25,
+          "label": {
+            "pt": "Solo",
+            "en": "Solo"
+          }
+        },
+        {
+          "id": "duo",
+          "price": 50,
+          "label": {
+            "pt": "Dois personagens",
+            "en": "Two characters"
+          }
+        }
+      ]
+    }
+  ]
+}
