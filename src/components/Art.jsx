@@ -18,5 +18,5 @@ export default function Art({ item, className = '', ...rest }) {
   }, [item])
 
   if (item.crop) return <canvas ref={ref} className={className} {...rest} />
-  return <img src={item.src} alt={item.title || ''} className={className} draggable="false" {...rest} />
+  return <img src={item.thumb || item.src} width={item.w} height={item.h} loading="lazy" decoding="async" alt={item.title || ''} className={className} draggable="false" {...rest} />
 }

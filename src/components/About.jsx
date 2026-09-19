@@ -3,13 +3,13 @@ import { useSite } from '../SiteContext'
 import Section, { fadeUp } from './Section'
 
 export default function About() {
-  const { t, cfg, lang, art } = useSite()
-  const portrait = art('lion')
+  const { t, cfg, lang } = useSite()
+  const portrait = cfg.about.portrait
   return (
     <Section id="about" title={t.aboutTitle} className="about">
       <motion.div className="about-grid" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, margin: '-80px' }}>
         <div className="about-art">
-          <img src={portrait.src} alt="" draggable="false" />
+          <img src={portrait.src} width={portrait.w} height={portrait.h} loading="lazy" decoding="async" alt="" draggable="false" />
         </div>
         <div className="about-text">
           {cfg.about[lang].map((p) => <p key={p}>{p}</p>)}

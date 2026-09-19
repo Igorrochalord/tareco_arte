@@ -6,7 +6,10 @@ import Embers from './Embers'
 const letters = (s) => s.split('')
 
 export default function Hero() {
-  const { t, cfg, art } = useSite()
+  const { t, cfg, art, money, lang } = useSite()
+  const minPrice = Math.min(...cfg.types.flatMap((ty) => ty.options.map((o) => o.price)))
+  const days = cfg.types.flatMap((ty) => [ty.min, ty.max]).filter(Boolean)
+  const dl = days.length ? `${Math.min(...days)}–${Math.max(...days)} ${t.days}` : t.heroDeadlineTbd
   const [i, setI] = useState(0)
   const slides = cfg.hero.map(art)
 
@@ -60,9 +63,14 @@ export default function Hero() {
             {t.tagline}
           </motion.p>
           <motion.div className="hero-actions" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.3 }}>
-            <a className="btn primary" href="#commissions">{t.heroCta}</a>
-            <a className="link-arrow" href="#work">{t.heroSecondary} →</a>
+            <a className="btn primary" href="#commissions">{t.heroCtaMain}</a>
+            <a className="btn ghost" href="#work">{t.heroSecondary2}</a>
           </motion.div>
+          <motion.ul className="hero-facts" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }}>
+            <li className="status" data-s={cfg.status}><i />{t[cfg.status]}</li>
+            <li>{t.heroFrom} <b>{money(minPrice)}</b></li>
+            <li>{t.heroDeadline}: <b>{dl}</b></li>
+          </motion.ul>
         </div>
 
         <motion.div className="hero-art" style={{ rotateX: rotX, rotateY: rotY }} initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.5, duration: 1 }}>
@@ -71,6 +79,8 @@ export default function Hero() {
               <motion.img
                 key={slides[i].id}
                 src={slides[i].src}
+                width={slides[i].w}
+                height={slides[i].h}
                 alt={slides[i].title}
                 initial={{ opacity: 0, scale: 1.08 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -82,7 +92,7 @@ export default function Hero() {
           </div>
           <div className="dots">
             {slides.map((s, k) => (
-              <button key={s.id} className={k === i ? 'on' : ''} onClick={() => setI(k)} aria-label={`${k + 1}`} />
+              <button key={s.id} className={k === i ? 'on' : ''} onClick={() => setI(k)} aria-label={`${t.slide} ${k + 1}: ${s.title}`} aria-current={k === i} />
             ))}
           </div>
         </motion.div>
@@ -90,7 +100,7 @@ export default function Hero() {
       <svg className="drips" viewBox="0 0 1200 90" preserveAspectRatio="none" aria-hidden="true">
         <path d="M0 0h1200v22c-20 0-24 30-24 44 0 10-10 10-10 0 0-14-6-30-26-30-18 0-22 20-22 34 0 12-12 12-12 0 0-22-8-48-30-48-24 0-20 26-22 40-2 12-12 10-12 0 0-14-4-36-24-36S960 40 960 62c0 10-12 10-12 0 0-18-6-40-28-40-20 0-24 16-24 30 0 12-12 12-12 0 0-14-6-30-26-30-22 0-26 24-26 40 0 8-10 8-10 0 0-20-8-42-32-42-20 0-20 16-22 28-2 10-12 8-12 0 0-14-6-28-24-28-20 0-24 22-24 38 0 10-12 10-12 0 0-18-8-38-30-38-18 0-22 14-22 26 0 10-10 10-10 0 0-16-8-34-28-34-22 0-24 22-26 36-2 12-12 10-12 0 0-14-6-32-26-32-18 0-22 16-22 30 0 10-12 10-12 0 0-16-8-36-28-36S66 44 66 60c0 8-10 8-10 0 0-18-8-38-28-38-12 0-20 4-28 10z" />
       </svg>
-      <a className="scroll-hint" href="#work" aria-hidden="true"><span /></a>
+      <a className="scroll-hint" href="#work" aria-hidden="true" tabIndex={-1}><span /></a>
     </header>
   )
 }

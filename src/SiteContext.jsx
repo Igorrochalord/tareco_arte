@@ -82,7 +82,7 @@ export function SiteProvider({ children }) {
     return { cfg, lang, t, money, deadline, art, toggleLang, update, reset }
   }, [cfg, lang, toggleLang, update, reset])
 
-  if (failed) return <p style={{ padding: 32, color: '#fff' }}>Não foi possível carregar config.json</p>
-  if (!value) return null
+  if (failed) return <p className="boot" role="alert">{STR[initialLang()].loadFail}</p>
+  if (!value) return <p className="boot" role="status">{STR[initialLang()].loading}</p>
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>
 }

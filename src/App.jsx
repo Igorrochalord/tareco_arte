@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { lazy, Suspense, useEffect, useState } from 'react'
+import { useSite } from "./SiteContext"
 import Nav from './components/Nav'
 import Hero from './components/Hero'
 import Portfolio from './components/Portfolio'
@@ -6,9 +7,10 @@ import Commissions from './components/Commissions'
 import HowItWorks from './components/HowItWorks'
 import About from './components/About'
 import Footer from './components/Footer'
-import AdminPanel from './components/AdminPanel'
+const AdminPanel = lazy(() => import('./components/AdminPanel'))
 
 export default function App() {
+  const { t } = useSite()
   const [admin, setAdmin] = useState(location.hash === '#admin')
   useEffect(() => {
     const on = () => setAdmin(location.hash === '#admin')
@@ -19,6 +21,7 @@ export default function App() {
   return (
     <>
       <div className="grain" aria-hidden="true" />
+      <a className="skip" href="#work">{t.skip}</a>
       <Nav />
       <main>
         <Hero />
@@ -28,7 +31,7 @@ export default function App() {
         <About />
       </main>
       <Footer />
-      {admin && <AdminPanel onClose={() => { location.hash = '' }} />}
+      {admin && <Suspense fallback={null}><AdminPanel onClose={() => { location.hash = '' }} /></Suspense>}
     </>
   )
 }

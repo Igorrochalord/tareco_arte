@@ -2,12 +2,19 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useSite } from '../SiteContext'
 import Section, { fadeUp } from './Section'
-import Lightbox from './Lightbox'
+import { lazy, Suspense } from 'react'
+
+const Lightbox = lazy(() => import('./Lightbox'))
+const ORDER = ['horror', 'icon', 'halfbody', 'fullbody', 'stickers']
 
 export default function Portfolio() {
   const { t, cfg } = useSite()
-  const items = cfg.gallery.filter((g) => !g.crop)
+  const all = cfg.gallery.filter((g) => !g.crop)
+  const cats = ORDER.filter((c) => all.some((g) => g.cat === c))
+  const [cat, setCat] = useState('all')
+  const items = cat === 'all' ? all : all.filter((g) => g.cat === cat)
   const [open, setOpen] = useState(null)
+  const [wasOpen, setWasOpen] = useState(false)
 
   const spot = (e) => {
     const r = e.currentTarget.getBoundingClientRect()
@@ -17,6 +24,13 @@ export default function Portfolio() {
 
   return (
     <Section id="work" title={t.workTitle} sub={t.workSub}>
+      {cats.length > 1 && (
+        <div className="filters" role="group" aria-label={t.filterLabel}>
+          {['all', ...cats].map((c) => (
+            <button key={c} aria-pressed={c === cat} onClick={() => setCat(c)}>{t.cats[c]}</button>
+          ))}
+        </div>
+      )}
       <div className="masonry">
         {items.map((it, i) => (
           <motion.button
@@ -28,15 +42,16 @@ export default function Portfolio() {
             viewport={{ once: true, margin: '-60px' }}
             transition={{ delay: (i % 3) * 0.08 }}
             onMouseMove={spot}
-            onClick={() => setOpen(i)}
+            onClick={() => { setWasOpen(true); setOpen(i) }}
+            aria-label={`${t.slide}: ${it.title || t.cats[it.cat]}`}
           >
-            <img src={it.src} alt={it.title} loading="lazy" draggable="false" />
+            <img src={it.thumb || it.src} width={it.w} height={it.h} alt="" loading="lazy" decoding="async" draggable="false" />
             <span className="tile-shine" />
-            {it.title && <span className="tile-title">{it.title}</span>}
+            <span className="tile-title">{it.title && <b>{it.title}</b>}<small>{t.cats[it.cat]}</small></span>
           </motion.button>
         ))}
       </div>
-      <Lightbox items={items} index={open} setIndex={setOpen} />
+      {wasOpen && <Suspense fallback={null}><Lightbox items={items} index={open} setIndex={setOpen} /></Suspense>}
     </Section>
   )
 }

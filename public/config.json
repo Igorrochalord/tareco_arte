@@ -6,28 +6,48 @@
   "gallery": [
     {
       "id": "hellith",
-      "src": "assets/art/hellith-twisk.jpg",
-      "title": "Hellith Twisk"
+      "src": "assets/art/hellith-twisk.webp",
+      "title": "Hellith Twisk",
+      "thumb": "assets/art/hellith-twisk-thumb.webp",
+      "w": 1500,
+      "h": 2000,
+      "cat": "horror"
     },
     {
       "id": "apogeu",
-      "src": "assets/art/apogeu-ardente.jpg",
-      "title": "Apogeu Ardente"
+      "src": "assets/art/apogeu-ardente.webp",
+      "title": "Apogeu Ardente",
+      "thumb": "assets/art/apogeu-ardente-thumb.webp",
+      "w": 2200,
+      "h": 2200,
+      "cat": "fullbody"
     },
     {
       "id": "sauron",
-      "src": "assets/art/sauron.jpg",
-      "title": "Sauron!!!"
+      "src": "assets/art/sauron.webp",
+      "title": "Sauron!!!",
+      "thumb": "assets/art/sauron-thumb.webp",
+      "w": 2200,
+      "h": 2000,
+      "cat": "halfbody"
     },
     {
       "id": "lion",
-      "src": "assets/art/lion-gun.jpg",
-      "title": ""
+      "src": "assets/art/lion-gun.webp",
+      "title": "",
+      "thumb": "assets/art/lion-gun-thumb.webp",
+      "w": 2000,
+      "h": 2000,
+      "cat": "icon"
     },
     {
       "id": "road",
-      "src": "assets/art/road-creature.jpg",
-      "title": ""
+      "src": "assets/art/road-creature.webp",
+      "title": "",
+      "thumb": "assets/art/road-creature-thumb.webp",
+      "w": 2200,
+      "h": 1760,
+      "cat": "horror"
     },
     {
       "id": "sticker",
@@ -38,7 +58,9 @@
         198,
         742,
         416
-      ]
+      ],
+      "cat": "stickers",
+      "thumb": "assets/art/pricing-card-thumb.webp"
     }
   ],
   "hero": [
@@ -68,6 +90,11 @@
         "Digital art",
         "Black · Purple · Red"
       ]
+    },
+    "portrait": {
+      "src": "assets/art/tarecao/tarecao.webp",
+      "w": 1000,
+      "h": 1000
     }
   },
   "types": [
